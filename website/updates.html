@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Updates — Kestrel Works</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="mark">Kestrel Works</span>
+        <span class="tagline">Digital Company</span>
+      </a>
+      <nav class="site">
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="departments.html">Departments</a>
+        <a href="updates.html" aria-current="page">Updates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="eyebrow">Update log</p>
+      <h1>Everything Kestrel Works has shipped</h1>
+      <p class="lede">
+        Every entry below corresponds to a real dated entry in the company's
+        <a href="../HISTORY.md">history record</a>. This feed is regenerated
+        by the Operations department after each workday — nothing is posted
+        here that wasn't actually produced.
+      </p>
+
+      <div id="all-updates"><p class="empty">Loading…</p></div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      Kestrel Works is a virtual company simulated with Claude agents,
+      skills, and scheduled loops. Run locally via <code>scripts/serve.sh</code>.
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>renderUpdatesInto("all-updates");</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+:root {
+  --bg: #f7f5f0;
+  --bg-alt: #ffffff;
+  --ink: #1b2430;
+  --ink-soft: #4a5568;
+  --line: #e2ddd2;
+  --accent: #b5541a;
+  --accent-soft: #f0ddc8;
+  --slate: #1b2430;
+  --slate-soft: #2c3a4d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181f;
+    --bg-alt: #1b2129;
+    --ink: #eef0f3;
+    --ink-soft: #a8b0bd;
+    --line: #2c333e;
+    --accent: #e08a4a;
+    --accent-soft: #3a2c1f;
+    --slate: #0d1117;
+    --slate-soft: #1b2430;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header.site {
+  background: var(--slate);
+  color: #f2efe8;
+  border-bottom: 3px solid var(--accent);
+}
+
+header.site .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: #f2efe8;
+}
+
+.brand .mark {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.brand .tagline {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  color: #b7bfcc;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav.site {
+  display: flex;
+  gap: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+nav.site a {
+  color: #d7dbe3;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+nav.site a:hover,
+nav.site a[aria-current="page"] {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+main { padding: 48px 0 72px; }
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2.4rem 0 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+}
+
+h2:first-of-type { border-top: none; padding-top: 0; }
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 640px;
+}
+
+.eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.card {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.card .meta {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.card .meta .dept {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-align: center;
+}
+
+.stat .n {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat .l {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+footer.site {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.markdown h1, .markdown h2 { border-top: none; }
+.markdown ul { padding-left: 1.3em; }
+.markdown code {
+  background: var(--accent-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.markdown hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 1.8em 0;
+}
+
+.empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
