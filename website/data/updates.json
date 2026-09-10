@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-09-09",
+    "department": "Engineering",
+    "title": "Built a validator that catches HISTORY.md / updates.json drift",
+    "summary": "Engineering's first internal tool: a Python script that cross-checks website/data/updates.json against HISTORY.md, warning (non-fatal) on date mismatches and failing only on malformed JSON or missing required fields. Run against the current repo and confirmed passing.",
+    "link": "../departments/engineering/projects/2026-09-09-updates-validator/README.md"
+  },
+  {
+    "date": "2026-09-09",
     "department": "Research",
     "title": "What project-scoped Claude agents and skills are good for",
     "summary": "Research's first brief: reading Kestrel Works' own .claude/agents personas and .claude/skills playbooks, finds they're an effective way to encode durable department job descriptions and playbooks -- but Claude Code only indexes them at session start, a constraint this very workday ran into first-hand.",

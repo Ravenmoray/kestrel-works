@@ -8,6 +8,35 @@ correcting, add a new entry that says so.
 
 ---
 
+## 2026-09-09 — Second workday: Engineering
+
+Operations ran Kestrel Works' second workday turn. Engineering picked up the
+roadmap's "Next" candidate and built the company's first internal tooling
+project:
+[`departments/engineering/projects/2026-09-09-updates-validator/`](departments/engineering/projects/2026-09-09-updates-validator/README.md) —
+a Python script (`validate_updates.py`) that cross-checks
+`website/data/updates.json` against `HISTORY.md` so the two records can't
+silently drift apart. It parses both files, confirms every `updates.json`
+entry has non-empty `date`/`department`/`title`/`summary` fields (fatal if
+not), warns (non-fatal) if an `updates.json` date has no matching
+`HISTORY.md` entry that day, and reports (informational) any `HISTORY.md`
+dated entries with no `updates.json` counterpart. It exits non-zero only on
+malformed JSON or missing required fields.
+
+Run against the current repo state from `/home/m/company1`:
+
+```
+python3 departments/engineering/projects/2026-09-09-updates-validator/validate_updates.py
+```
+
+Result: **PASS** — both existing `updates.json` entries are valid and match
+a `HISTORY.md` entry for their date, with no warnings. This is an internal
+utility (not pushed to GitHub as a standalone repo), per the engineering
+charter's guidance to only publish finished standalone projects worth
+publishing on their own.
+
+---
+
 ## 2026-09-09 — First workday: Research
 
 Operations ran Kestrel Works' first real workday turn. Research picked a
