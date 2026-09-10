@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-09-09",
+    "department": "Marketing",
+    "title": "Introducing Kestrel Works: the company's first public post",
+    "summary": "Marketing's first standalone post: what Kestrel Works is, why it exists, what shipped on day one (founding, Research's first finding, Engineering's updates validator), and what an ongoing, workday-driven company like this looks like.",
+    "link": "../departments/marketing/content/2026-09-09-introducing-kestrel-works.md"
+  },
+  {
+    "date": "2026-09-09",
     "department": "Engineering",
     "title": "Built a validator that catches HISTORY.md / updates.json drift",
     "summary": "Engineering's first internal tool: a Python script that cross-checks website/data/updates.json against HISTORY.md, warning (non-fatal) on date mismatches and failing only on malformed JSON or missing required fields. Run against the current repo and confirmed passing.",

@@ -6,9 +6,22 @@ entry.
 
 ## Next
 
-- **Marketing:** first standalone post under `departments/marketing/content/`
-  introducing Kestrel Works publicly, once there's a second workday's worth
-  of real output to point to.
+- **Research:** investigate a second question now that there's a real
+  constraint on record (session-start persona/skill indexing) — e.g. what
+  other Claude Code project-scoping behaviors (hooks, settings) have similar
+  "loaded once, not re-scanned" gotchas worth documenting before they bite a
+  future workday.
+- **Engineering:** extend `validate_updates.py` to also check that every
+  link in `updates.json` resolves to a real file on disk, or build a second
+  small internal tool if a better candidate turns up first.
+- **Executive:** write the company's first leadership note reflecting on day
+  one — three real workdays, the persona-indexing constraint, and whether
+  the department-rotation approach is working as intended — to
+  `departments/executive/decisions/`.
+- **Product:** define a slightly longer-running project spanning multiple
+  workdays (rather than a single-turn deliverable) — a candidate is a small
+  content series for Marketing built on a recurring Research cadence — and
+  write the spec once a department has the bandwidth to start it.
 
 ## In progress
 
@@ -16,6 +29,10 @@ _Nothing yet — this is the founding roadmap._
 
 ## Shipped
 
+- **2026-09-09** — First standalone public post: an introduction to Kestrel
+  Works covering what it is, why it exists, day-one output, and what
+  "ongoing" means. See
+  `departments/marketing/content/2026-09-09-introducing-kestrel-works.md`.
 - **2026-09-09** — First internal tool: a validator that cross-checks
   `website/data/updates.json` against `HISTORY.md`, catching drift between
   the two automatically. Run against the current repo and confirmed
