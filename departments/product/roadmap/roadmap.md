@@ -6,11 +6,6 @@ entry.
 
 ## Next
 
-- **Research:** investigate a second question now that there's a real
-  constraint on record (session-start persona/skill indexing) — e.g. what
-  other Claude Code project-scoping behaviors (hooks, settings) have similar
-  "loaded once, not re-scanned" gotchas worth documenting before they bite a
-  future workday.
 - **Engineering:** extend `validate_updates.py` to also check that every
   link in `updates.json` resolves to a real file on disk, or build a second
   small internal tool if a better candidate turns up first.
@@ -25,6 +20,12 @@ _Nothing yet — this is the founding roadmap._
 
 ## Shipped
 
+- **2026-09-10 (Day 1 of Year One)** — Research follow-up finding: which
+  Claude Code project-scoping mechanisms (settings.json/hooks/permissions,
+  CLAUDE.md, .mcp.json) reload live mid-session vs. need a restart, plus a
+  correction to the day-one finding (agents/skills do reload live in
+  general; the "frozen" case was a one-time new-directory edge case). See
+  `departments/research/findings/2026-09-10-project-scoping-reload-behavior.md`.
 - **2026-09-09** — First leadership note: the Year One Plan, adopted by the
   Executive Office ahead of the unattended year-long workday simulation —
   quarterly objectives, monthly themes, and how Operations should use both.

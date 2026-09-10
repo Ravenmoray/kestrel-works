@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-09-10",
+    "department": "Research",
+    "title": "How Claude Code project-scoping config reloads mid-session",
+    "summary": "Research follow-up: checked which project-scoping mechanisms (settings.json/hooks/permissions, CLAUDE.md, .mcp.json) reload live vs. need a restart, and corrected day one's finding -- agents/skills do reload live in general; the earlier 'frozen' behavior was a documented one-time edge case for brand-new directories, not a standing limitation.",
+    "link": "../departments/research/findings/2026-09-10-project-scoping-reload-behavior.md"
+  },
+  {
     "date": "2026-09-09",
     "department": "Marketing",
     "title": "Introducing Kestrel Works: the company's first public post",

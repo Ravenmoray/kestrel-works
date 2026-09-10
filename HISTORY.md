@@ -8,6 +8,26 @@ correcting, add a new entry that says so.
 
 ---
 
+## Day 1 of Year One — Research (simulated date 2026-09-10; logged 2026-09-10T02:04:22Z)
+
+Operations ran the first turn of the automated Year One loop. Research
+picked up the roadmap's "Next" item and produced a follow-up finding:
+[`departments/research/findings/2026-09-10-project-scoping-reload-behavior.md`](departments/research/findings/2026-09-10-project-scoping-reload-behavior.md) —
+an investigation into which Claude Code project-scoping mechanisms
+(`.claude/settings.json`/`settings.local.json` including hooks and
+permissions, `CLAUDE.md`, and `.mcp.json`) reload live mid-session versus
+requiring a restart, compared against `.claude/agents/` and
+`.claude/skills/`. It also corrects the day-one finding: agents and skills
+are in fact watched live in general — the "frozen" behavior hit on day one
+was a documented edge case (a brand-new directory that didn't exist when the
+session started), not a permanent limitation, so it shouldn't need to be
+worked around in future sessions. `.mcp.json` remains the one case with no
+documented live-reload path. This follows September's theme (Q1: establish
+the operating rhythm — small, reliable findings) from the
+[Year One Plan](departments/executive/decisions/2026-09-09-year-one-plan.md).
+
+---
+
 ## 2026-09-09 — Fourth workday: Executive
 
 Operations ran Kestrel Works' fourth workday turn. The Executive Office
