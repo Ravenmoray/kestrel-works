@@ -99,6 +99,34 @@ async function renderUpdatesInto(elId, limit) {
   }
 }
 
+async function renderYearProgress(elId, path) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error("fetch failed");
+    const s = await res.json();
+    const pct = Math.min(100, Math.round((s.simulated_day / s.year_length_days) * 1000) / 10);
+    const statusLabel = { running: "Running", completed: "Complete", stopped: "Stopped" }[s.status] || s.status;
+    el.innerHTML = `
+      <div class="card">
+        <div class="meta">
+          <span class="pill">${escapeHtml(statusLabel)}</span>
+          &nbsp;Day ${s.simulated_day} of ${s.year_length_days} &middot; simulated date ${escapeHtml(s.simulated_date)}
+        </div>
+        <div style="background:var(--line);border-radius:999px;height:10px;overflow:hidden;margin:10px 0;">
+          <div style="background:var(--accent);height:100%;width:${pct}%;"></div>
+        </div>
+        <p style="margin:0;color:var(--ink-soft);font-size:0.9rem;">
+          Last department to run: <strong>${escapeHtml(s.last_department || "—")}</strong>
+          ${s.stopped_reason ? ` &middot; ${escapeHtml(s.stopped_reason)}` : ""}
+        </p>
+      </div>`;
+  } catch (e) {
+    el.innerHTML = '<p class="empty">Year One progress unavailable right now.</p>';
+  }
+}
+
 async function renderMarkdownInto(elId, path) {
   const el = document.getElementById(elId);
   if (!el) return;

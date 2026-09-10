@@ -1,0 +1,59 @@
+You are running one fully unattended "simulated day" turn for Kestrel Works, a digital company simulated with Claude agents (working directory: this repo root, /home/m/company1). This invocation was launched by a cron job. No human is present. Do not use AskUserQuestion or wait for input — make the best reasonable call yourself, note any assumption in your bookkeeping, and proceed. If something is genuinely blocking (corrupted state, a conflicting git state, etc.), do NOT guess wildly or leave the repo broken: write a clear "stopped_reason" into the state file (step 1 below), set its "status" to "stopped", commit that change, push if possible, and stop.
+
+Read COMPANY.md if you have not already this session.
+
+## 1. Read and advance the simulated clock
+
+Read departments/operations/state/sim-clock.json. If "status" is not "running", do nothing further — exit immediately (this shouldn't normally happen; the wrapper script checks this too, but don't override a stopped/completed state).
+
+Compute this turn's values:
+- simulated_day = previous simulated_day + 1
+- simulated_date = previous simulated_date + 1 calendar day (e.g. 2026-09-09 -> 2026-09-10)
+- department = next department after "last_department" in this fixed rotation, cycling: research -> engineering -> product -> marketing -> executive -> research -> ...
+
+Do not write the file yet — you'll write the final state once at the end of this turn (step 6).
+
+## 2. Get today's theme
+
+Read departments/executive/decisions/2026-09-09-year-one-plan.md. Find the monthly theme for the calendar month of this turn's simulated_date (e.g. simulated_date "2026-10-14" -> October's theme). Also note which quarter it falls in and that quarter's objective. You'll use this to give the department a throughline instead of picking work arbitrarily.
+
+## 3. Run the department's turn
+
+Read departments/<department>/CHARTER.md and departments/product/roadmap/roadmap.md. Delegate the actual work via the Agent tool using subagent_type "<department's persona name>" (ceo, research-lead, staff-engineer, product-manager, or comms-lead — map department "executive" -> persona "ceo"). Give it a concrete, self-contained brief: it starts with no memory of this conversation, so name exact file paths, state this is "Day <simulated_day> of Year One (simulated date <simulated_date>)", give it this month's theme/quarter objective, point it at any relevant "Next" item on the roadmap it should pick up (or let it choose something reasonable within the theme if nothing fits), and tell it to produce ONE real, complete deliverable — not a large unfinished project. Keep the same quality bar as previous workdays: no invented output, no placeholder content, definition-of-done per its charter.
+
+Wait for it to report back, then verify its claimed output actually exists on disk.
+
+## 4. Bookkeeping
+
+- Prepend a new dated entry to HISTORY.md titled "## Day <simulated_day> of Year One — <Department> (simulated date <simulated_date>; logged <real UTC timestamp>)" describing what was produced, linking the file(s).
+- Prepend a matching entry to website/data/updates.json (department name capitalized, e.g. "Research"; link to the real file).
+- If the department's work should change departments/product/roadmap/roadmap.md (an item shipped, a new item worth queuing), update it.
+- Write departments/operations/logs/day-<simulated_day zero-padded to 4 digits>.md documenting: which department ran, what it produced, the month theme used, and confirmation of the definition-of-done checklist from departments/operations/CHARTER.md.
+
+## 5. Site check
+
+Start `./scripts/serve.sh 8765` in the background, `curl` `http://localhost:8765/website/index.html` and `http://localhost:8765/website/data/updates.json` to confirm both return 200, then stop the server and confirm no leftover `http.server` process. If either check fails, note it in the operations log but do not treat it as fatal to the rest of this turn unless you broke something — in that case, fix it (it's likely Engineering's or your own edit that broke it).
+
+## 6. Advance and write the simulated clock
+
+Determine final status:
+- If simulated_day >= year_length_days (365): status = "completed", stopped_reason = "Year One complete — 365 simulated days finished on <simulated_date>."
+- Otherwise: status = "running", stopped_reason = null.
+
+Write departments/operations/state/sim-clock.json with: status, year_length_days (unchanged), simulated_day, simulated_date, last_department = <department run this turn>, started_real (unchanged), last_run_real = <current real UTC timestamp, ISO 8601>, stopped_reason, year_plan (unchanged), notes (unchanged).
+
+## 7. Commit and push
+
+From the repo root: `git add` every file you changed this turn (department output, HISTORY.md, website/data/updates.json, roadmap.md if changed, the operations log, sim-clock.json). Commit with a message like "Day <simulated_day> of Year One: <Department> — <one-line summary>", ending with:
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+Then `git push origin main`. If the push fails, retry once; if it still fails, note the failure clearly in the operations log and in your final output line, but keep the local commit (do not lose work).
+
+## 8. Final output line
+
+As the very last line of your response, print exactly one line in this format so the wrapper script can parse it:
+
+SIMDAY_RESULT day=<simulated_day> department=<department> status=<running|completed|stopped> commit=<short git hash or "none">
+
+Nothing after that line.

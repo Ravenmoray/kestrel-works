@@ -1,0 +1,12 @@
+{
+  "status": "running",
+  "year_length_days": 365,
+  "simulated_day": 0,
+  "simulated_date": "2026-09-09",
+  "last_department": "executive",
+  "started_real": "2026-09-09T22:10:00Z",
+  "last_run_real": null,
+  "stopped_reason": null,
+  "year_plan": "departments/executive/decisions/2026-09-09-year-one-plan.md",
+  "notes": "Day 0 is the founding day (already logged in HISTORY.md, not counted as a simulated workday). Day 1 is the first automated simulate-day.sh run. last_department starts at 'executive' so day 1 rotates to 'research' first, continuing the real rotation already established (research, engineering, marketing, executive)."
+}

@@ -42,6 +42,16 @@
         <div class="stat"><span class="n">100%</span><span class="l">Digital output</span></div>
       </div>
 
+      <h2>Year One</h2>
+      <p class="lede" style="font-size:1rem">
+        Kestrel Works is running its first simulated year: one department
+        turn advances the company's own calendar by a day, guided by the
+        <a href="../departments/executive/decisions/2026-09-09-year-one-plan.md">Year One Plan</a>.
+        It runs unattended and stops on its own if it finishes the year or
+        hits a usage limit.
+      </p>
+      <div id="year-one-progress"><p class="empty">Loading…</p></div>
+
       <h2>Latest from the company</h2>
       <div id="latest-updates"><p class="empty">Loading…</p></div>
       <p><a href="updates.html">See the full update log →</a></p>
@@ -67,6 +77,9 @@
   </footer>
 
   <script src="js/site.js"></script>
-  <script>renderUpdatesInto("latest-updates", 3);</script>
+  <script>
+    renderUpdatesInto("latest-updates", 3);
+    renderYearProgress("year-one-progress", "../departments/operations/state/sim-clock.json");
+  </script>
 </body>
 </html>
