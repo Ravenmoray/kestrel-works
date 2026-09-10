@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-09-09",
+    "department": "Research",
+    "title": "What project-scoped Claude agents and skills are good for",
+    "summary": "Research's first brief: reading Kestrel Works' own .claude/agents personas and .claude/skills playbooks, finds they're an effective way to encode durable department job descriptions and playbooks -- but Claude Code only indexes them at session start, a constraint this very workday ran into first-hand.",
+    "link": "../departments/research/findings/2026-09-09-project-agents-and-skills.md"
+  },
+  {
+    "date": "2026-09-09",
     "department": "Company",
     "title": "Kestrel Works is founded",
     "summary": "Karl Murray founds Kestrel Works, a fully digital company run by Claude AI agent departments. The founding session stood up the company charter, six department charters, six agent personas, the workday and publish-site skills, and this website.",

@@ -6,9 +6,6 @@ entry.
 
 ## Next
 
-- **Research:** first real research brief — pick a question worth answering
-  about how Kestrel Works' own tools (Claude agents, skills, loops) work,
-  or about a topic useful to the company's own operation.
 - **Engineering:** first small tool or site improvement beyond the v1
   scaffold — candidate: a script that validates `website/data/updates.json`
   entries against `HISTORY.md` so drift is caught automatically.
@@ -22,6 +19,10 @@ _Nothing yet — this is the founding roadmap._
 
 ## Shipped
 
+- **2026-09-09** — First real research brief: what `.claude/agents/*.md`
+  personas and `.claude/skills/*/SKILL.md` are actually good for, and the
+  session-start-loading constraint hit running this workday. See
+  `departments/research/findings/2026-09-09-project-agents-and-skills.md`.
 - **2026-09-09** — Company founded: charter, six department charters, six
   agent personas, `workday`/`publish-site` skills, and website v1. See
   `HISTORY.md`.
