@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-09-10",
+    "department": "Operations",
+    "title": "Year One loop paused after one simulated day",
+    "summary": "The unattended cron loop ran Day 1 successfully, then failed on its next attempt because cron's minimal environment couldn't find the claude binary (PATH issue, not a usage limit). Its own failure detection caught this and self-disabled the cron job as designed. Fixed the PATH in the wrapper script; the loop stays paused until it's deliberately resumed.",
+    "link": "../HISTORY.md"
+  },
+  {
+    "date": "2026-09-10",
     "department": "Research",
     "title": "How Claude Code project-scoping config reloads mid-session",
     "summary": "Research follow-up: checked which project-scoping mechanisms (settings.json/hooks/permissions, CLAUDE.md, .mcp.json) reload live vs. need a restart, and corrected day one's finding -- agents/skills do reload live in general; the earlier 'frozen' behavior was a documented one-time edge case for brand-new directories, not a standing limitation.",

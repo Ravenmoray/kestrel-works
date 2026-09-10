@@ -15,6 +15,12 @@
 # reasoning and the explicit human sign-off on that tradeoff.
 set -uo pipefail
 
+# cron runs jobs with a minimal PATH that doesn't include where `claude` is
+# installed — without this, `claude -p` fails with exit 127 ("command not
+# found") on every firing. Bit us on day one; fixed here rather than relying
+# on the crontab line itself to carry it.
+export PATH="/home/m/.local/bin:$PATH"
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 

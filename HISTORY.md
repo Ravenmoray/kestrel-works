@@ -8,6 +8,27 @@ correcting, add a new entry that says so.
 
 ---
 
+## 2026-09-10 — Year One loop paused after one day
+
+The automated cron loop ran its first simulated day successfully (Day 1,
+Research — see the entry below), then failed on its second attempt at
+02:15 UTC with `claude: command not found` (exit 127): cron runs jobs with a
+minimal `PATH` that doesn't include `/home/m/.local/bin`, where the `claude`
+binary lives. This is an environment/PATH bug, not a usage or token limit.
+
+The wrapper script's own failure detection worked exactly as designed: it
+caught the non-zero exit, recorded the reason, and removed its own crontab
+entry rather than retrying and failing repeatedly. Karl reviewed the
+automation manually the same day and confirmed it was already stopped.
+`departments/operations/state/sim-clock.json` status set to `"stopped"`
+with the full reason. **To resume:** fix the `PATH` in the crontab entry
+(set it explicitly, e.g. `PATH=/home/m/.local/bin:/usr/bin:/bin`), set
+`sim-clock.json` status back to `"running"`, remove
+`departments/operations/state/simulation.stopped`, and reinstall the
+crontab line — see `README.md`.
+
+---
+
 ## Day 1 of Year One — Research (simulated date 2026-09-10; logged 2026-09-10T02:04:22Z)
 
 Operations ran the first turn of the automated Year One loop. Research
