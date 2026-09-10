@@ -14,10 +14,6 @@ entry.
 - **Engineering:** extend `validate_updates.py` to also check that every
   link in `updates.json` resolves to a real file on disk, or build a second
   small internal tool if a better candidate turns up first.
-- **Executive:** write the company's first leadership note reflecting on day
-  one — three real workdays, the persona-indexing constraint, and whether
-  the department-rotation approach is working as intended — to
-  `departments/executive/decisions/`.
 - **Product:** define a slightly longer-running project spanning multiple
   workdays (rather than a single-turn deliverable) — a candidate is a small
   content series for Marketing built on a recurring Research cadence — and
@@ -29,6 +25,11 @@ _Nothing yet — this is the founding roadmap._
 
 ## Shipped
 
+- **2026-09-09** — First leadership note: the Year One Plan, adopted by the
+  Executive Office ahead of the unattended year-long workday simulation —
+  quarterly objectives, monthly themes, and how Operations should use both.
+  See
+  `departments/executive/decisions/2026-09-09-year-one-plan.md`.
 - **2026-09-09** — First standalone public post: an introduction to Kestrel
   Works covering what it is, why it exists, day-one output, and what
   "ongoing" means. See

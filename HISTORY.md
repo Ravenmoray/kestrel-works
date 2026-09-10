@@ -8,6 +8,26 @@ correcting, add a new entry that says so.
 
 ---
 
+## 2026-09-09 — Fourth workday: Executive
+
+Operations ran Kestrel Works' fourth workday turn. The Executive Office
+adopted the company's first Year One Plan:
+[`departments/executive/decisions/2026-09-09-year-one-plan.md`](departments/executive/decisions/2026-09-09-year-one-plan.md) —
+a strategic document for the upcoming unattended, cron-driven simulation of
+365 simulated days (one department workday turn per firing). It frames what
+Year One is for (a genuine, compressed test of what sustained
+department-by-department work accumulates into, with the public website
+kept as an honest record throughout), sets four quarterly objectives (Q1:
+establish the operating rhythm; Q2: depth over novelty; Q3: make the record
+legible; Q4: close the year honestly) each tied to what "done" looks like
+per department charter, lays out a twelve-month theme list for Operations to
+use when picking each day's department and task, and notes that the plan is
+expected to be revised over the year via new dated decisions rather than
+silent edits. This fulfills the roadmap's "first leadership note" item —
+see `departments/product/roadmap/roadmap.md`.
+
+---
+
 ## 2026-09-09 — Third workday: Marketing
 
 Operations ran Kestrel Works' third workday turn. Marketing picked up the
